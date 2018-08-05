@@ -20,6 +20,7 @@ class Form extends Component {
           name='password'
           component={FormField}
           label='Password'
+          type='password'
         />
         <button type='submit'>Login</button>
       </form>
