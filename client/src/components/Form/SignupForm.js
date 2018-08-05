@@ -23,6 +23,12 @@ class Form extends Component {
           type='password'
         />
         <Field
+          name='passwordRe'
+          component={FormField}
+          label='Retype Password'
+          type='password'
+        />
+        <Field
           name='email'
           component={FormField}
           label='Email'
@@ -44,6 +50,9 @@ function validate(value) {
   }
   if (!value.email) {
     errors.email = 'Email Required!'
+  }
+  if (value.password !== value.passwordRe) {
+    errors.passwordRe = 'Password must match!'
   }
   return errors;
 };

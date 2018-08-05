@@ -1,14 +1,16 @@
 import React from 'react';
 
-const FormField = ({ input, label, type }) => {
+const FormField = field => {
+  const { meta: { touched, error } } = field;
   return (
     <div>
-      {label}
+      {field.label}
       <input
-        {...input}
+        {...field.input}
         autoComplete='off'
-        type={type}
+        type={field.type}
       />
+      <p style={{ fontSize: '12px', color: 'red' }}>{touched ? error: ''}</p>
     </div>
   );
 };
