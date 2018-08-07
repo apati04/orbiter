@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-require('/routes/user_data_api')(app);
+require('./routes/user_data_api')(app);
 
 app.use(express.static('client/public'));
 app.get('*', (req, res) => {
