@@ -9,6 +9,7 @@ class Home extends Component {
   };
 
   render() {
+    console.log(this.props.users);
     return (
       <div>
         <h1>Home Route</h1>

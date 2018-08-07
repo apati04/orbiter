@@ -34,6 +34,16 @@ class Form extends Component {
           label='Email'
           type='email'
         />
+        <Field
+          name='firstname'
+          component={FormField}
+          label='Firstname'
+        />
+        <Field
+          name='lastname'
+          component={FormField}
+          label='Lastname'
+        />
         <button type='submit'>Sign Up</button>
       </form>
     );
@@ -50,6 +60,12 @@ function validate(value) {
   }
   if (!value.email) {
     errors.email = 'Email Required!'
+  }
+  if (!value.firstname) {
+    errors.firstname = 'Firstname Required!'
+  }
+  if (!value.lastname) {
+    errors.lastname = 'Lastname Required!'
   }
   if (value.password !== value.passwordRe) {
     errors.passwordRe = 'Password must match!'
