@@ -8,6 +8,6 @@ export const fetchUserData = () => async dispatch => {
 };
 
 export const addNewUser = values => async dispatch => {
-  const request = await axios.post('/api/add/users', values);
+  const request = await axios.post('/api/users', values);
   dispatch({ type: ADD_NEW_USER, payload: request });
 };

@@ -8,7 +8,7 @@ module.exports = app => {
     res.send(data);
   });
 
-  app.post('/api/add/users', async (req, res) => {
+  app.post('/api/users', async (req, res) => {
     console.log(req);
     // const request = await axios.post('https://orbiter-db.firebaseio.com/users.json', req.query.values);
     // const { data } = request;
