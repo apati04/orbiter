@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import FormField from './FormField';
+import { withRouter } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { addNewUser } from '../../actions';
 
 class Form extends Component {
   formSubmit = values => {
-    console.log(values);
-    this.props.addNewUser(values);
+    this.props.addNewUser(values, () => {
+      this.props.history.push('/');
+    });
   };
 
   render() {
@@ -76,4 +78,4 @@ function validate(value) {
   return errors;
 };
 
-export default reduxForm({ validate, form: 'value' })(connect(null, { addNewUser })(Form));
+export default withRouter(reduxForm({ validate, form: 'value' })(connect(null, { addNewUser })(Form)));
