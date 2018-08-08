@@ -1,7 +1,8 @@
+import _ from 'lodash';
 import { FETCH_USER_DATA } from '../actions/types';
 
 const INITIAL_STATE = {
-  users: {}
+  data: {}
 };
 
 function usersDataReducer(state = INITIAL_STATE, action) {
@@ -9,7 +10,12 @@ function usersDataReducer(state = INITIAL_STATE, action) {
     case action.type:
       return {
         ...state,
-        users: action.payload
+        data: _.map(action.payload, (value, key) => {
+          return {
+            ...value,
+            id: key
+          };
+        })
       };
     default:
       return state;
