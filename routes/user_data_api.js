@@ -9,9 +9,8 @@ module.exports = app => {
   });
 
   app.post('/api/users', async (req, res) => {
-    console.log(req);
-    // const request = await axios.post('https://orbiter-db.firebaseio.com/users.json', req.query.values);
-    // const { data } = request;
-    // res.send(data);
+    const request = await axios.post('https://orbiter-db.firebaseio.com/users.json', req.body);
+    const { data } = request;
+    res.send(data);
   });
 };

@@ -25,28 +25,28 @@ class Form extends Component {
           label='Password'
           type='password'
         />
-        {/* <Field
+        <Field
           name='passwordRe'
           component={FormField}
           label='Retype Password'
           type='password'
-          />
-          <Field
+        />
+        <Field
           name='email'
           component={FormField}
           label='Email'
           type='email'
-          />
-          <Field
+        />
+        <Field
           name='firstname'
           component={FormField}
           label='Firstname'
-          />
-          <Field
+        />
+        <Field
           name='lastname'
           component={FormField}
           label='Lastname'
-        /> */}
+        />
         <button type='submit'>Sign Up</button>
       </form>
     );
