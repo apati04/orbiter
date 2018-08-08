@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import FormField from './FormField';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { addNewUser } from '../../actions';
 
 class Form extends Component {
-  formSubmit = value => {
-    console.log(value);
+  formSubmit = values => {
+    console.log(values);
+    this.props.addNewUser(values);
   };
 
   render() {
@@ -73,4 +76,4 @@ function validate(value) {
   return errors;
 };
 
-export default reduxForm({ validate, form: 'value' })(Form);
+export default reduxForm({ validate, form: 'value' })(connect(null, { addNewUser })(Form));

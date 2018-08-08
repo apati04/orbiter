@@ -6,4 +6,12 @@ module.exports = app => {
     const { data } = request;
     res.send(data);
   });
+
+  app.get('/api/add/users', async (req, res) => {
+    console.log(req.query.values);
+    // const request = await axios.post('https://orbiter-db.firebaseio.com/users.json', req.query.values);
+    // console.log(req.query);
+    // const { data } = request;
+    // res.send(data);
+  });
 };
