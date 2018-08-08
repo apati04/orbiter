@@ -3,7 +3,6 @@ const keys = require('../config/keys');
 
 module.exports = app => {
   app.get('/api/users', async (req, res) => {
-    //change the firebase url to process.env
     const request = await axios.get(keys.firebaseURL);
     const { data } = request;
     res.send(data);
