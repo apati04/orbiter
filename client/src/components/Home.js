@@ -11,7 +11,6 @@ class Home extends Component {
 
   render() {
     console.log(this.props.users.data);
-    console.log(this.props.newUsers);
     return (
       <div>
         <h1>Home Route</h1>

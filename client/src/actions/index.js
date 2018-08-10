@@ -22,6 +22,6 @@ export const addNewUsers = (values, callback) => async dispatch => {
   const request = await axios.post('/api/users', values);
   if (request.status === 200) {
     dispatch(receiveNewUsersRegistration());
+    callback();
   }
-  callback();
 };

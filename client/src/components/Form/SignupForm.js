@@ -14,6 +14,7 @@ class Form extends Component {
   };
 
   render() {
+    console.log(this.props.newUsers);
     const { handleSubmit, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit(this.formSubmit)}>
@@ -79,10 +80,16 @@ function validate(value) {
   return errors;
 };
 
+function mapStateToProps({ newUsers }) {
+  return {
+    newUsers
+  };
+};
+
 export default withRouter(
   reduxForm({
     validate,
     asyncValidate,
     asyncChangeFields: ['username'],
     form: 'value'
-  })(connect(null, { addNewUsers })(Form)));
+  })(connect(mapStateToProps, { addNewUsers })(Form)));
