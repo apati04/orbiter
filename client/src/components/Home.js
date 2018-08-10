@@ -11,19 +11,22 @@ class Home extends Component {
 
   render() {
     console.log(this.props.users.data);
+    console.log(this.props.newUsers);
     return (
       <div>
         <h1>Home Route</h1>
         <LoginForm />
         <Link to='/signup'><button>To Signup</button></Link>
+        <p style={{ color: 'green', textWeight: 'bold' }}>{this.props.newUsers.isCreated ? 'Username has been succesully created!' : ''}</p>
       </div>
     );
   }
 };
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, newUsers }) {
   return {
-    users
+    users,
+    newUsers
   }
 };
 
