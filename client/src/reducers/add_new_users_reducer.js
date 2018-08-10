@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 };
 
 function addNewUsersReducer(state = INITIAL_STATE, action) {
-  switch (action.payload) {
+  switch (action.type) {
     case REQUEST_NEW_USERS_REGISTRATION:
       return {
         ...state,

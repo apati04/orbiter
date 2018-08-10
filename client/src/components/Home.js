@@ -17,7 +17,7 @@ class Home extends Component {
         <h1>Home Route</h1>
         <LoginForm />
         <Link to='/signup'><button>To Signup</button></Link>
-        <p style={{ color: 'green', textWeight: 'bold' }}>{this.props.newUsers.isCreated ? 'Username has been succesully created!' : ''}</p>
+        <p style={{ color: 'green', textWeight: 'bold' }}>{this.props.newUsers.isCreated ? 'User has been succesully created!' : ''}</p>
       </div>
     );
   }
