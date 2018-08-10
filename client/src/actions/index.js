@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { FETCH_USER_DATA, ADD_NEW_USER } from './types';
+import * as types from './types';
 
 export const fetchUserData = () => async dispatch => {
   const request = await axios.get('/api/users');
   const { data } = request;
-  dispatch({ type: FETCH_USER_DATA, payload: data });
+  dispatch({ type: types.FETCH_USER_DATA, payload: data });
 };
 
 export const addNewUser = (values, callback) => async dispatch => {
   const request = await axios.post('/api/users', values);
   callback();
-  dispatch({ type: ADD_NEW_USER, payload: request });
+  dispatch({ type: types.ADD_NEW_USER, payload: request });
 };
