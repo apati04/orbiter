@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import axios from 'axios';
+import debounce from 'debounce-promise';
 
 const asyncValidate = async values => {
   const request = await axios.get('/api/users');
@@ -9,4 +10,4 @@ const asyncValidate = async values => {
   }
 };
 
-export default asyncValidate;
+export default debounce(asyncValidate, 500);
