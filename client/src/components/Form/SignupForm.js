@@ -4,11 +4,11 @@ import asyncValidate from './asyncValidate';
 import { withRouter } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { addNewUser } from '../../actions';
+import { addNewUsers } from '../../actions';
 
 class Form extends Component {
   formSubmit = values => {
-    this.props.addNewUser(values, () => {
+    this.props.addNewUsers(values, () => {
       this.props.history.push('/');
     });
   };
@@ -85,4 +85,4 @@ export default withRouter(
     asyncValidate,
     asyncChangeFields: ['username'],
     form: 'value'
-  })(connect(null, { addNewUser })(Form)));
+  })(connect(null, { addNewUsers })(Form)));

@@ -7,21 +7,21 @@ export const fetchUserData = () => async dispatch => {
   dispatch({ type: types.FETCH_ALL_USERS_DATA, payload: data });
 };
 
-const requestNewUserRegistration = () => ({
+const requestNewUsersRegistration = () => ({
   type: types.REQUEST_NEW_USERS_REGISTRATION,
   payload: true
 });
 
-const receiveNewUserRegistration = () => ({
+const receiveNewUsersRegistration = () => ({
   type: types.RECEIVE_NEW_USERS_REGISTRATION,
   payload: true
 });
 
-export const addNewUser = (values, callback) => async dispatch => {
-  dispatch(requestNewUserRegistration());
+export const addNewUsers = (values, callback) => async dispatch => {
+  dispatch(requestNewUsersRegistration());
   const request = await axios.post('/api/users', values);
   if (request.status === 200) {
-    dispatch(receiveNewUserRegistration());
+    dispatch(receiveNewUsersRegistration());
   }
   callback();
 };
