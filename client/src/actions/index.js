@@ -9,7 +9,7 @@ export const fetchUserData = () => async dispatch => {
 
 const requestNewUsersRegistration = () => ({
   type: types.REQUEST_NEW_USERS_REGISTRATION,
-  payload: true
+  payload: false
 });
 
 const receiveNewUsersRegistration = () => ({

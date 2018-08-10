@@ -1,7 +1,6 @@
 import { REQUEST_NEW_USERS_REGISTRATION, RECEIVE_NEW_USERS_REGISTRATION } from '../actions/types';
 
 const INITIAL_STATE = {
-  isCreating: false,
   isCreated: false
 };
 
@@ -10,12 +9,11 @@ function addNewUsersReducer(state = INITIAL_STATE, action) {
     case REQUEST_NEW_USERS_REGISTRATION:
       return {
         ...state,
-        isCreating: action.payload
+        isCreated: action.payload
       };
     case RECEIVE_NEW_USERS_REGISTRATION:
       return {
         ...state,
-        isCreating: false,
         isCreated: action.payload
       };
     default:
