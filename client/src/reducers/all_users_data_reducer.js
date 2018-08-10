@@ -1,12 +1,12 @@
 import _ from 'lodash';
-import { FETCH_USER_DATA } from '../actions/types';
+import { FETCH_ALL_USERS_DATA } from '../actions/types';
 
 const INITIAL_STATE = {
   data: {}
 };
 
 function usersDataReducer(state = INITIAL_STATE, action) {
-  switch (FETCH_USER_DATA) {
+  switch (FETCH_ALL_USERS_DATA) {
     case action.type:
       return {
         ...state,

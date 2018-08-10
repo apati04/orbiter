@@ -4,7 +4,7 @@ import * as types from './types';
 export const fetchUserData = () => async dispatch => {
   const request = await axios.get('/api/users');
   const { data } = request;
-  dispatch({ type: types.FETCH_USER_DATA, payload: data });
+  dispatch({ type: types.FETCH_ALL_USERS_DATA, payload: data });
 };
 
 export const addNewUser = (values, callback) => async dispatch => {

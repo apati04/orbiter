@@ -1,2 +1,2 @@
-export const FETCH_USER_DATA = 'FETCH_USER_DATA';
+export const FETCH_ALL_USERS_DATA = 'FETCH_ALL_USERS_DATA';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
