@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormField from './FormField';
+import asyncValidate from './asyncValidate';
 import { withRouter } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -13,7 +14,7 @@ class Form extends Component {
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit(this.formSubmit)}>
         <Field
@@ -49,7 +50,7 @@ class Form extends Component {
           component={FormField}
           label='Lastname'
         />
-        <button type='submit'>Sign Up</button>
+        <button type='submit' disabled={submitting}>{submitting ? 'Submitting...' : 'Sign Up'}</button>
       </form>
     );
   }
@@ -78,4 +79,10 @@ function validate(value) {
   return errors;
 };
 
-export default withRouter(reduxForm({ validate, form: 'value' })(connect(null, { addNewUser })(Form)));
+export default withRouter(
+  reduxForm({
+    validate,
+    asyncValidate,
+    asyncChangeFields: ['username'],
+    form: 'value'
+  })(connect(null, { addNewUser })(Form)));

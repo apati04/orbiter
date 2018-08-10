@@ -1,9 +1,9 @@
 import React from 'react';
 
 const FormField = field => {
-  const { meta: { touched, error } } = field;
+  const { meta: { asyncValidating, touched, error } } = field;
   return (
-    <div>
+    <div className={asyncValidating ? 'async-validating' : ''}>
       {field.label}
       <input
         {...field.input}
