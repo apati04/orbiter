@@ -25,3 +25,7 @@ export const addNewUsers = (values, callback) => async dispatch => {
     callback();
   }
 };
+
+export const resetNewUsersRegistration = () => ({
+  type: types.RESET_NEW_USERS_REGISTRATION
+});
