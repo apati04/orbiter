@@ -11,7 +11,7 @@ class SignupForm extends Component {
     isSubmitting: false
   };
 
-  componentDidMount() {
+  componentWillUnmount() {
     this.setState({ isSubmitting: false });
   };
 
