@@ -7,6 +7,14 @@ import { connect } from 'react-redux';
 import { addNewUsers } from '../../actions';
 
 class Form extends Component {
+  state = {
+    isSubmitting: false
+  };
+
+  componentDidMount() {
+    this.setState({ isSubmitting: false });
+  };
+
   formSubmit = values => {
     return this.props.addNewUsers(values, () => {
       this.props.history.push('/');
@@ -14,8 +22,7 @@ class Form extends Component {
   };
 
   render() {
-    const { handleSubmit, submitting } = this.props;
-    console.log(submitting);
+    const { handleSubmit, invalid } = this.props;
     return (
       <form onSubmit={handleSubmit(this.formSubmit)}>
         <Field
@@ -51,7 +58,13 @@ class Form extends Component {
           component={FormField}
           label='Lastname'
         />
-        <button type='submit' disabled={submitting}>{submitting ? 'Submitting...' : 'Sign Up'}</button>
+        <button
+          type='submit'
+          disabled={invalid}
+          onClick={() => this.setState({ isSubmitting: true })} 
+        >
+          {this.state.isSubmitting ? 'Submitting...' : 'Sign Up'}
+        </button>
       </form>
     );
   }
