@@ -6,7 +6,15 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { addNewUsers } from '../../actions';
 
-class Form extends Component {
+class SignupForm extends Component {
+  state = {
+    isSubmitting: false
+  };
+
+  componentWillUnmount() {
+    this.setState({ isSubmitting: false });
+  };
+
   formSubmit = values => {
     return this.props.addNewUsers(values, () => {
       this.props.history.push('/');
@@ -14,8 +22,7 @@ class Form extends Component {
   };
 
   render() {
-    const { handleSubmit, submitting } = this.props;
-    console.log(submitting);
+    const { handleSubmit, invalid } = this.props;
     return (
       <form onSubmit={handleSubmit(this.formSubmit)}>
         <Field
@@ -53,9 +60,10 @@ class Form extends Component {
         />
         <button
           type='submit'
-          disabled={submitting}
+          disabled={invalid}
+          onClick={() => this.setState({ isSubmitting: true })}
         >
-          {submitting ? 'Submitting...' : 'Sign Up'}
+          {this.state.isSubmitting ? 'Submitting...' : 'Sign Up'}
         </button>
       </form>
     );
@@ -91,4 +99,4 @@ export default withRouter(
     asyncValidate,
     asyncChangeFields: ['username'],
     form: 'value'
-  })(connect(null, { addNewUsers })(Form)));
+  })(connect(null, { addNewUsers })(SignupForm)));
