@@ -80,16 +80,10 @@ function validate(value) {
   return errors;
 };
 
-function mapStateToProps({ newUsers }) {
-  return {
-    newUsers
-  };
-};
-
 export default withRouter(
   reduxForm({
     validate,
     asyncValidate,
     asyncChangeFields: ['username'],
     form: 'value'
-  })(connect(mapStateToProps, { addNewUsers })(Form)));
+  })(connect(null, { addNewUsers })(Form)));
