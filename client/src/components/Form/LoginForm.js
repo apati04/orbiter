@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FormField from './FormField';
 import { Field, reduxForm } from 'redux-form';
 
-class Form extends Component {
+class LoginForm extends Component {
   formSubmit = value => {
     console.log(value);
   };
@@ -39,4 +39,4 @@ function validate(value) {
   return errors;
 };
 
-export default reduxForm({ validate, form: 'value' })(Form);
+export default reduxForm({ validate, form: 'value' })(LoginForm);

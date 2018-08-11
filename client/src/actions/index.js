@@ -1,14 +1,31 @@
 import axios from 'axios';
-import { FETCH_USER_DATA, ADD_NEW_USER } from './types';
+import * as types from './types';
 
 export const fetchUserData = () => async dispatch => {
   const request = await axios.get('/api/users');
   const { data } = request;
-  dispatch({ type: FETCH_USER_DATA, payload: data });
+  dispatch({ type: types.FETCH_ALL_USERS_DATA, payload: data });
 };
 
-export const addNewUser = (values, callback) => async dispatch => {
+const requestNewUsersRegistration = () => ({
+  type: types.REQUEST_NEW_USERS_REGISTRATION,
+  payload: false
+});
+
+const receiveNewUsersRegistration = () => ({
+  type: types.RECEIVE_NEW_USERS_REGISTRATION,
+  payload: true
+});
+
+export const addNewUsers = (values, callback) => async dispatch => {
+  dispatch(requestNewUsersRegistration());
   const request = await axios.post('/api/users', values);
-  callback();
-  dispatch({ type: ADD_NEW_USER, payload: request });
+  if (request.status === 200) {
+    dispatch(receiveNewUsersRegistration());
+    callback();
+  }
 };
+
+export const resetNewUsersRegistration = () => ({
+  type: types.RESET_NEW_USERS_REGISTRATION
+});
