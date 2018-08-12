@@ -29,3 +29,26 @@ export const addNewUsers = (values, callback) => async dispatch => {
 export const resetNewUsersRegistration = () => ({
   type: types.RESET_NEW_USERS_REGISTRATION
 });
+
+export const authRequest = () => {
+  return {
+    type: types.AUTH_REQUEST
+  };
+};
+
+export const authSuccess = data => {
+  return { type: types.AUTH_SUCCESS, data };
+};
+
+export const authFail = error => {
+  return {
+    type: types.AUTH_FAIL,
+    error
+  };
+};
+
+export const authUser = (email, password) => {
+  return dispatch => {
+    dispatch(authRequest());
+  };
+};
