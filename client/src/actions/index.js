@@ -50,5 +50,13 @@ export const authFail = error => {
 export const authUser = (email, password) => {
   return dispatch => {
     dispatch(authRequest());
+    const dataObj = {
+      email,
+      password,
+      returnSecureToken: true
+    };
+    axios.post('/api/auth', dataObj).then(response => {
+      console.log('ac: ', response);
+    });
   };
 };

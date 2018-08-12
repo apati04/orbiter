@@ -13,4 +13,12 @@ module.exports = app => {
     const { data } = request;
     res.send(data);
   });
+  app.post('/api/auth', async (req, res) => {
+    console.log('17: ', req.body);
+    const signupUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${
+      keys.firebaseApiKey
+    }`;
+    const request = await axios.post(signupUrl, req.body);
+    res.send(request.data);
+  });
 };
